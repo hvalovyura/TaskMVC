@@ -4,6 +4,7 @@
 }
 @model IEnumerable<Project>
 <h1>Список проектов</h1>
+<a asp-action="Create">Добавить пользователя</a>
 <table class="table">
     @foreach (Project p in Model)
     {

@@ -1,0 +1,25 @@
+﻿@model ProjectList.Models.Project
+@{
+    ViewBag.Title = "Creating new project";
+}
+    <form asp-action="create" asp-controller="home">
+        <div class="form-group">
+            <label asp-for="Name" class="control-label">Name</label>
+            <input type="text" asp-for="Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Price" class="control-label">Price</label>
+            <input type="number" asp-for="Price" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="CategoryId" class="control-label">Category</label>
+            <input type="number" asp-for="CategoryId" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="control-label">Description</label>
+            <input type="text" asp-for="Description" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Send" class="btn btn-default" />
+        </div>
+    </form>
