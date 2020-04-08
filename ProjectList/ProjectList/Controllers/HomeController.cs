@@ -19,9 +19,6 @@ namespace ProjectList.Controllers
         }
 
 
-
-
-
        // private readonly ILogger<HomeController> _logger;
 
         //public HomeController(ILogger<HomeController> logger)
@@ -44,6 +41,24 @@ namespace ProjectList.Controllers
         public async Task<IActionResult> Create(Project project)
         {
             db.Projects.Add(project);
+            await db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Edit(int? id)
+        {
+            Project project = await db.Projects.FirstOrDefaultAsync(p => p.Id == id);
+            if (project != null)
+            {
+                return View(project);
+            }
+            return NotFound();                
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Project project)
+        {
+            db.Projects.Update(project);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

@@ -160,3 +160,4 @@ C:\Users\2die4\Desktop\projects\TaskMVC\ProjectList\ProjectList\bin\Debug\netcor
 C:\Users\2die4\Desktop\projects\TaskMVC\ProjectList\ProjectList\obj\Debug\netcoreapp3.1\ProjectList.csproj.CoreCompileInputs.cache
 C:\Users\2die4\Desktop\projects\TaskMVC\ProjectList\ProjectList\obj\Debug\netcoreapp3.1\ProjectList.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\2die4\Desktop\projects\TaskMVC\ProjectList\ProjectList\obj\Debug\netcoreapp3.1\Razor\Views\Home\Create.cshtml.g.cs
+C:\Users\2die4\Desktop\projects\TaskMVC\ProjectList\ProjectList\obj\Debug\netcoreapp3.1\Razor\Views\Home\Edit.cshtml.g.cs
