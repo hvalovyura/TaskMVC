@@ -45,8 +45,7 @@ namespace ProjectList.Controllers
                 IQueryable<Category> categories = db.Categories;
                 ViewBag.Greeting = categories;
                 return View();
-            }
-            
+            }            
         }
 
         public async Task<IActionResult> Edit(int? id)
