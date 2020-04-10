@@ -41,6 +41,8 @@ namespace ProjectList.Controllers
 
         public async Task<IActionResult> Edit(int? id)
         {
+            IQueryable<Category> categories = db.Categories;
+            ViewBag.Greeting = categories;
             Project project = await db.Projects.FirstOrDefaultAsync(p => p.Id == id);
             if (project != null)
             {
