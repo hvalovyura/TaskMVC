@@ -79,6 +79,18 @@ namespace ProjectList.Controllers
             }
         }
 
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id != null)
+            {
+                Project project = new Project { Id = id.Value };
+                db.Entry(project).State = EntityState.Deleted;
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return NotFound();
+        }
+
 
 
         public IActionResult CategoryList(string searchString)
@@ -135,6 +147,36 @@ namespace ProjectList.Controllers
             {
                 return View();
             }
+        }
+
+        public async Task<IActionResult> DeleteCategory(int? id)
+        {
+            bool permission = true;            
+            if (id != null)
+            {
+                Category category = await db.Categories.FirstOrDefaultAsync(p => p.Id == id);
+                if (category != null)
+                {
+                    IEnumerable<Project> projects = db.Projects;
+                    foreach(Project p in projects)
+                    {
+                        if (p.CategoryId == category.Id) permission = false;
+                    }
+                    if (permission == true)
+                    {
+                        db.Categories.Remove(category);
+                        await db.SaveChangesAsync();
+                        return RedirectToAction("CategoryList");
+                    }   
+                    else
+                    {
+                        IQueryable<Category> categories = db.Categories;
+                        ViewBag.Message = "Can't delete selected category: category does not empty, change project categories in projects list!";
+                        return View("CategoryList", categories);
+                    }                        
+                }
+            }
+            return NotFound();
         }
 
 

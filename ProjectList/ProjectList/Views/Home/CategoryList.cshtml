@@ -17,6 +17,8 @@
     {
         <tr>
             <td><a asp-action="EditCategory" asp-controller="Home" asp-route-id="@p.Id">@p.Name</a></td>
+            <td><a asp-action="DeleteCategory" asp-controller="Home" asp-route-id="@p.Id">Delete</a></td>
         </tr>
     }
 </table>
+<font color="red" size="5">@ViewBag.Message</font>
