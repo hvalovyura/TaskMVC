@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "CategoryList";
+}
+@model IEnumerable<Category>
+<h1>CategoryList</h1>
+<a asp-action="CreateCategory">Add new category</a>
+<table class="table">
+    @foreach (Category p in Model)
+    {
+        <tr>
+            <td><a asp-action="EditCategory" asp-controller="Home" asp-route-id="@p.Id">@p.Name</a></td>
+        </tr>
+    }
+</table>

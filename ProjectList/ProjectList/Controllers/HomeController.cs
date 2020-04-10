@@ -32,9 +32,15 @@ namespace ProjectList.Controllers
             return View(users);
         }
 
+        public IActionResult CategoryList()
+        {
+            IQueryable<Category> categories = db.Categories;
+            return View(categories);
+        }
+
         public IActionResult Create()
         {
-            return View();
+            return View("Create");
         }
 
         [HttpPost]
@@ -43,6 +49,36 @@ namespace ProjectList.Controllers
             db.Projects.Add(project);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+        public IActionResult CreateCategory()
+        {
+            return View("CreateCategory");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateCategory(Category category)
+        {
+            db.Categories.Add(category);
+            await db.SaveChangesAsync();
+            return RedirectToAction("CategoryList");
+        }
+
+        public async Task<IActionResult> EditCategory(int? id)
+        {
+            Category category = await db.Categories.FirstOrDefaultAsync(p => p.Id == id);
+            if (category != null)
+            {
+                return View(category);
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditCategory(Category category)
+        {
+            db.Categories.Update(category);
+            await db.SaveChangesAsync();
+            return RedirectToAction("CategoryList");
         }
 
         public async Task<IActionResult> Edit(int? id)
