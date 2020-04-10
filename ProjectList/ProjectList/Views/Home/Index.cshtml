@@ -9,11 +9,10 @@
     @foreach (Project p in Model)
     {
     <tr>
-        <td>@p.Name</td>
+        <td><a asp-action="Edit" asp-controller="Home" asp-route-id="@p.Id">@p.Name</a></td>
         <td>@p.Price</td>
         <td>@p.Category.Name</td>
-        <td>@p.Description</td>
-        <td><a asp-action="Edit" asp-controller="Home" asp-route-id="@p.Id">Edit</a></td>        
+        <td>@p.Description</td>       
     </tr>        
     }
 </table>

@@ -18,14 +18,6 @@ namespace ProjectList.Controllers
             this.db = context;
         }
 
-
-       // private readonly ILogger<HomeController> _logger;
-
-        //public HomeController(ILogger<HomeController> logger)
-        //{
-        //    _logger = logger;
-        //}
-
         public IActionResult Index()
         {
             IQueryable<Project> users = db.Projects.Include(x => x.Category);
@@ -98,11 +90,6 @@ namespace ProjectList.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
-
-        //public IActionResult Privacy()
-        //{
-        //    return View();
-        //}
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         //public IActionResult Error()

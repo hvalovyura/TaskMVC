@@ -18,7 +18,6 @@ C:\Users\2die4\Desktop\projects\TaskMVC\ProjectList\ProjectList\obj\Debug\netcor
 C:\Users\2die4\Desktop\projects\TaskMVC\ProjectList\ProjectList\obj\Debug\netcoreapp3.1\ProjectList.TagHelpers.output.cache
 C:\Users\2die4\Desktop\projects\TaskMVC\ProjectList\ProjectList\obj\Debug\netcoreapp3.1\ProjectList.RazorCoreGenerate.cache
 C:\Users\2die4\Desktop\projects\TaskMVC\ProjectList\ProjectList\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\2die4\Desktop\projects\TaskMVC\ProjectList\ProjectList\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\2die4\Desktop\projects\TaskMVC\ProjectList\ProjectList\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\2die4\Desktop\projects\TaskMVC\ProjectList\ProjectList\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\2die4\Desktop\projects\TaskMVC\ProjectList\ProjectList\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
