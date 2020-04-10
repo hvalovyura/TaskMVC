@@ -12,7 +12,7 @@ namespace ProjectList.Models
 
         public int Id { get; set; }
         [StringLength(100, ErrorMessage = "error message")]
-
+        [Required]
         public string Name { get; set; }
 
         public List<Project> Projects { get; set; }

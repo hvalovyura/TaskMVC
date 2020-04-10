@@ -54,9 +54,16 @@ namespace ProjectList.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(Project project)
         {
-            db.Projects.Update(project);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            if(ModelState.IsValid)
+            {
+                db.Projects.Update(project);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
         }
 
 

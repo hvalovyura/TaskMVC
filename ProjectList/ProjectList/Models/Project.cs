@@ -11,11 +11,13 @@ namespace ProjectList.Models
     {
         public int Id { get; set; }
         [StringLength(100, ErrorMessage = "error message")]
+        [Required]
         public string Name { get; set; }
+        [Required]
         public int Price { get; set; }
         [StringLength(1000, ErrorMessage = "error message")]
         public string Description { get; set; }
-
+        [Required]
         public int CategoryId { get; set; }
 
         public Category Category { get; set; }
