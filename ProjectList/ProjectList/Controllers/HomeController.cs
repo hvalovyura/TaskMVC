@@ -18,9 +18,13 @@ namespace ProjectList.Controllers
             this.db = context;
         }
 
-        public IActionResult Index() //Main page with project list
+        public IActionResult Index(string searchString) //Main page with project list
         {
             IQueryable<Project> users = db.Projects.Include(x => x.Category);
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                users = users.Where(s => s.Name.Contains(searchString));
+            }            
             return View(users);
         }
 
@@ -77,9 +81,13 @@ namespace ProjectList.Controllers
 
 
 
-        public IActionResult CategoryList()
+        public IActionResult CategoryList(string searchString)
         {
             IQueryable<Category> categories = db.Categories;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                categories = categories.Where(s => s.Name.Contains(searchString));
+            }            
             return View(categories);
         }
         

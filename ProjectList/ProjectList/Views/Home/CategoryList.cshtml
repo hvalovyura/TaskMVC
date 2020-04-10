@@ -4,6 +4,13 @@
 }
 @model IEnumerable<Category>
 <h1>CategoryList</h1>
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
 <a asp-action="CreateCategory">Add new category</a>
 <table class="table">
     @foreach (Category p in Model)

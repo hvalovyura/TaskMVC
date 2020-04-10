@@ -4,15 +4,23 @@
 }
 @model IEnumerable<Project>
 <h1>ProjectList</h1>
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
 <a asp-action="Create">Add new project</a>
 <table class="table">
     @foreach (Project p in Model)
     {
-    <tr>
-        <td><a asp-action="Edit" asp-controller="Home" asp-route-id="@p.Id">@p.Name</a></td>
-        <td>@p.Price</td>
-        <td>@p.Category.Name</td>
-        <td>@p.Description</td>       
-    </tr>        
+        <tr>
+            <td><a asp-action="Edit" asp-controller="Home" asp-route-id="@p.Id">@p.Name</a></td>
+            <td>@p.Price</td>
+            <td>@p.Category.Name</td>
+            <td>@p.Description</td>
+        </tr>
+
     }
 </table>
