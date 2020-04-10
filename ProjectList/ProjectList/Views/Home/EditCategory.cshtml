@@ -1,9 +1,10 @@
-﻿@model ProjectList.Models.Category 
+﻿@model ProjectList.Models.Category
 @{
-    ViewData["Title"] = "EditCategory";
+    ViewBag.Title = "EditCategory";
 }
 <h1>EditCategory</h1>
 <form asp-action="EditCategory" asp-controller="Home" asp-route-id="@Model.Id">
+    <div class="validation" asp-validation-summary="ModelOnly"></div>
     <div class="form-group">
         <label asp-for="Name" class="control-label">Name</label>
         <input type="text" asp-for="Name" class="form-control" />
@@ -12,3 +13,10 @@
         <input type="submit" value="Edit" class="btn btn-default" />
     </div>
 </form>
+
+
+@section scripts{
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

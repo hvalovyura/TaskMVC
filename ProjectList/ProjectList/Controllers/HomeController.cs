@@ -34,9 +34,19 @@ namespace ProjectList.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Project project)
         {
-            db.Projects.Add(project);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            if(ModelState.IsValid)
+            {
+                db.Projects.Add(project);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                IQueryable<Category> categories = db.Categories;
+                ViewBag.Greeting = categories;
+                return View();
+            }
+            
         }
 
         public async Task<IActionResult> Edit(int? id)
@@ -82,9 +92,17 @@ namespace ProjectList.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateCategory(Category category)
         {
-            db.Categories.Add(category);
-            await db.SaveChangesAsync();
-            return RedirectToAction("CategoryList");
+            if(ModelState.IsValid)
+            {
+                db.Categories.Add(category);
+                await db.SaveChangesAsync();
+                return RedirectToAction("CategoryList");
+            }
+            else
+            {
+                return View();
+            }
+            
         }
 
         public async Task<IActionResult> EditCategory(int? id)
@@ -100,9 +118,16 @@ namespace ProjectList.Controllers
         [HttpPost]
         public async Task<IActionResult> EditCategory(Category category)
         {
-            db.Categories.Update(category);
-            await db.SaveChangesAsync();
-            return RedirectToAction("CategoryList");
+            if(ModelState.IsValid)
+            {
+                db.Categories.Update(category);
+                await db.SaveChangesAsync();
+                return RedirectToAction("CategoryList");
+            }
+            else
+            {
+                return View();
+            }
         }
 
 

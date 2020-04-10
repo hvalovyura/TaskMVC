@@ -2,29 +2,36 @@
 @{
     ViewBag.Title = "Creating new project";
 }
-    <form asp-action="create" asp-controller="home">
-        <div class="form-group">
-            <label asp-for="Name" class="control-label">Name</label>
-            <input type="text" asp-for="Name" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label asp-for="Price" class="control-label">Price</label>
-            <input type="number" asp-for="Price" class="form-control" />
-        </div>
-        <div>
-            <label asp-for="CategoryId" class="control-label">Category</label>
-            <select asp-for="CategoryId" class="form-control">
-                @foreach (Category cat in ViewBag.Greeting)
-                {
-                    <option value="@cat.Id">@cat.Name</option>
-                }
-            </select>
-        </div>
-        <div class="form-group">
-            <label asp-for="Description" class="control-label">Description</label>
-            <textarea type="text" asp-for="Description" class="form-control" rows="6"></textarea>
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Send" class="btn btn-default" />
-        </div>
-    </form>
+<form asp-action="create" asp-controller="home">
+    <div class="validation" asp-validation-summary="ModelOnly"></div>
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Name</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Price" class="control-label">Price</label>
+        <input type="number" asp-for="Price" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="CategoryId" class="control-label">Category</label>
+        <select asp-for="CategoryId" class="form-control">
+            @foreach (Category cat in ViewBag.Greeting)
+            {
+                <option value="@cat.Id">@cat.Name</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label">Description</label>
+        <textarea type="text" asp-for="Description" class="form-control" rows="6"></textarea>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Send" class="btn btn-default" />
+    </div>
+</form>
+
+@section scripts{
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
