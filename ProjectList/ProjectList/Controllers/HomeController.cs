@@ -70,15 +70,10 @@ namespace ProjectList.Controllers
         public IActionResult Index(string searchString) //Main page with project list
         {
             IQueryable<Product> products = db.GetProductList().Include(x => x.Category);
-            //List<Product> products = db.GetProductList();
             if (!String.IsNullOrEmpty(searchString))
             {
                 products = products.Where(s => s.Name.Contains(searchString));
             }
-            //if (!String.IsNullOrEmpty(searchString))
-            //{
-            //    products = db.Filter(searchString);
-            //}
             return View(products);
         }
 
@@ -90,13 +85,12 @@ namespace ProjectList.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Product project)
+        public IActionResult Create(Product product)
         {
             if (ModelState.IsValid)
             {
-                db.Create(project);
+                db.Create(product);
                 db.Save();
-                //await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             else
@@ -107,32 +101,32 @@ namespace ProjectList.Controllers
             }
         }
 
-        //public async Task<IActionResult> Edit(int? id)
-        //{
-        //    IQueryable<Category> categories = db.Category;
-        //    ViewBag.Greeting = categories;
-        //    Product project = await db.Product.FirstOrDefaultAsync(p => p.Id == id);
-        //    if (project != null)
-        //    {
-        //        return View(project);
-        //    }
-        //    return NotFound();
-        //}
+        public IActionResult Edit(int id)
+        {
+            IQueryable<Category> categories = db.GetCategoryList();
+            ViewBag.Greeting = categories;
+            Product product = db.GetProduct(id);
+            if (product != null)
+            {
+                return View(product);
+            }
+            return NotFound();
+        }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Edit(Product project)
-        //{
-        //    if(ModelState.IsValid)
-        //    {
-        //        db.Product.Update(project);
-        //        await db.SaveChangesAsync();
-        //        return RedirectToAction("Index");
-        //    }
-        //    else
-        //    {
-        //        return View();
-        //    }
-        //}
+        [HttpPost]
+        public IActionResult Edit(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Update(product);
+                db.Save();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
+        }
 
         //public async Task<IActionResult> Delete(int? id)
         //{
