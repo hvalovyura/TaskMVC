@@ -31,18 +31,6 @@ namespace ProjectList.Models
             return db.Category.Find(id);
         }
 
-        //public IQueryable<Product> Filter(string searchString)
-        //{
-        //    if (!String.IsNullOrEmpty(searchString))
-        //    {
-        //        return db.Product.Where(s => s.Name.Contains(searchString));
-        //    }
-        //    else
-        //    {
-        //        return db.Product;
-        //    }
-        //}
-
         public void Create(Product product)
         {
             db.Product.Add(product);
@@ -67,7 +55,18 @@ namespace ProjectList.Models
         {
             Product product = db.Product.Find(id);
             if (product != null)
+            {
                 db.Product.Remove(product);
+            }                
+        }
+
+        public void DeleteCategory(int id)
+        {
+            Category category = db.Category.Find(id);
+            if (category != null)
+            {
+                db.Category.Remove(category);
+            }
         }
 
         public void Save()

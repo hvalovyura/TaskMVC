@@ -16,9 +16,9 @@ namespace ProjectList.Models
         void CreateCategory(Category category);
         void Update(Product product);
         void UpdateCategory(Category category);
-        //IQueryable<Product> Filter(string searchString);
 
         void Delete(int id);
+        void DeleteCategory(int id);
 
         void Save();
     }
