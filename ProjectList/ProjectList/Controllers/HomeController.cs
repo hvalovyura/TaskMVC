@@ -12,33 +12,6 @@ namespace ProjectList.Controllers
 {
     public class HomeController : Controller
     {
-
-        //ProductContext db;
-
-        //public HomeController(ProductContext context)
-        //{
-        //    this.db = context;
-
-        //    Category music = new Category { Name = "Music" };
-        //    Category video = new Category { Name = "Video" };
-        //    Category photo = new Category { Name = "Photo" };
-        //    Category category = db.Category.FirstOrDefault(u => u.Name == music.Name);
-        //    if(category == null)
-        //    {
-        //        db.Category.Add(music);
-        //    }            
-        //    category = db.Category.FirstOrDefault(u => u.Name == video.Name);
-        //    if (category == null)
-        //    {
-        //        db.Category.Add(video);
-        //    }
-        //    category = db.Category.FirstOrDefault(u => u.Name == photo.Name);
-        //    if (category == null)
-        //    {
-        //        db.Category.Add(photo);
-        //    }
-        //    db.SaveChanges();           
-        //}
         IRepository db;
 
         public HomeController(IRepository repository)
@@ -193,31 +166,31 @@ namespace ProjectList.Controllers
         public IActionResult DeleteCategory(int id)
         {
             bool permission = true;
-            if (id != null)
+            Category category = db.GetCategory(id);
+            if (category != null)
             {
-                Category category = db.GetCategory(id);
-                if (category != null)
+                IEnumerable<Product> products = db.GetProductList();
+                foreach (Product p in products)
                 {
-                    IEnumerable<Product> products = db.GetProductList();
-                    foreach (Product p in products)
-                    {
-                        if (p.CategoryId == category.Id) permission = false;
-                    }
-                    if (permission == true)
-                    {
-                        db.DeleteCategory(id);
-                        db.Save();
-                        return RedirectToAction("Category");
-                    }
-                    else
-                    {
-                        IQueryable<Category> categories = db.GetCategoryList();
-                        ViewBag.Message = "Can't delete selected category: category does not empty, change project categories in projects list!";
-                        return View("Category", categories);
-                    }
+                    if (p.CategoryId == category.Id) permission = false;
+                }
+                if (permission == true)
+                {
+                    db.DeleteCategory(id);
+                    db.Save();
+                    return RedirectToAction("Category");
+                }
+                else
+                {
+                    IQueryable<Category> categories = db.GetCategoryList();
+                    ViewBag.Message = "Can't delete selected category: category does not empty, change project categories in projects list!";
+                    return View("Category", categories);
                 }
             }
-            return NotFound();
+            else
+            {
+                return NotFound();
+            }
         }
 
     }
