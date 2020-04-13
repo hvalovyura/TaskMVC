@@ -173,7 +173,6 @@ C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList\obj\Debug
 C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList\obj\Debug\netcoreapp3.1\ProjectList.TagHelpers.input.cache
 C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList\obj\Debug\netcoreapp3.1\ProjectList.TagHelpers.output.cache
 C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList\obj\Debug\netcoreapp3.1\ProjectList.RazorCoreGenerate.cache
-C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList\obj\Debug\netcoreapp3.1\Razor\Views\Home\CategoryList.cshtml.g.cs
 C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList\obj\Debug\netcoreapp3.1\Razor\Views\Home\Create.cshtml.g.cs
 C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList\obj\Debug\netcoreapp3.1\Razor\Views\Home\CreateCategory.cshtml.g.cs
 C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList\obj\Debug\netcoreapp3.1\Razor\Views\Home\Edit.cshtml.g.cs
@@ -328,3 +327,4 @@ C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList\obj\Debug
 C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList\obj\Debug\netcoreapp3.1\staticwebassets\ProjectList.StaticWebAssets.Manifest.cache
 C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList\obj\Debug\netcoreapp3.1\staticwebassets\ProjectList.StaticWebAssets.xml
 C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList\obj\Debug\netcoreapp3.1\ProjectList.genruntimeconfig.cache
+C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList\obj\Debug\netcoreapp3.1\Razor\Views\Home\Category.cshtml.g.cs

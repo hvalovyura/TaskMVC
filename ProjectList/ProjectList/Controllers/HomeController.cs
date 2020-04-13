@@ -94,7 +94,7 @@ namespace ProjectList.Controllers
             return NotFound();
         }
 
-        public IActionResult CategoryList(string searchString)
+        public IActionResult Category(string searchString)
         {
             IQueryable<Category> categories = db.Category;
             if (!String.IsNullOrEmpty(searchString))
