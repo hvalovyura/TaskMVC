@@ -26,7 +26,10 @@ namespace ProjectList
         public void ConfigureServices(IServiceCollection services)
         {
             string connection = "Server = (localdb)\\mssqllocaldb; Database = userstoredb; Trusted_Connection = true";
-            services.AddDbContext<ProjectsContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<ProductContext>(options => options.UseSqlServer(connection));
+
+            services.AddScoped<IRepository, ProductRepository>();
+
             services.AddControllersWithViews();
         }
 

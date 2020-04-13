@@ -216,10 +216,12 @@ C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList.Test\bin\
 C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList.Test\bin\Debug\netcoreapp3.1\ProjectList.dll
 C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList.Test\bin\Debug\netcoreapp3.1\ProjectList.pdb
 C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList.Test\obj\Debug\netcoreapp3.1\ProjectList.Test.csprojAssemblyReference.cache
-C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList.Test\obj\Debug\netcoreapp3.1\ProjectList.Test.csproj.CoreCompileInputs.cache
 C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList.Test\obj\Debug\netcoreapp3.1\ProjectList.Test.AssemblyInfoInputs.cache
 C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList.Test\obj\Debug\netcoreapp3.1\ProjectList.Test.AssemblyInfo.cs
 C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList.Test\obj\Debug\netcoreapp3.1\ProjectList.Test.csproj.CopyComplete
 C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList.Test\obj\Debug\netcoreapp3.1\ProjectList.Test.dll
 C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList.Test\obj\Debug\netcoreapp3.1\ProjectList.Test.pdb
 C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList.Test\obj\Debug\netcoreapp3.1\ProjectList.Test.genruntimeconfig.cache
+C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList.Test\bin\Debug\netcoreapp3.1\Castle.Core.dll
+C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList.Test\bin\Debug\netcoreapp3.1\Moq.dll
+C:\Users\2die4\Desktop\projects\TaskHvalovYury\ProjectList\ProjectList.Test\obj\Debug\netcoreapp3.1\ProjectList.Test.csproj.CoreCompileInputs.cache

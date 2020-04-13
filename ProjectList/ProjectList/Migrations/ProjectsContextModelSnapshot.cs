@@ -7,7 +7,7 @@ using ProjectList.Models;
 
 namespace ProjectList.Migrations
 {
-    [DbContext(typeof(ProjectsContext))]
+    [DbContext(typeof(ProductContext))]
     partial class ProjectsContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

@@ -8,7 +8,7 @@ using ProjectList.Models;
 
 namespace ProjectList.Migrations
 {
-    [DbContext(typeof(ProjectsContext))]
+    [DbContext(typeof(ProductContext))]
     [Migration("20200413093527_initial2")]
     partial class initial2
     {
