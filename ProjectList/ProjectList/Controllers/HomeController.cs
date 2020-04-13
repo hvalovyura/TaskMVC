@@ -41,9 +41,9 @@ namespace ProjectList.Controllers
         //}
         IRepository db;
 
-        public HomeController(IRepository r)
+        public HomeController(IRepository repository)
         {
-            this.db = r;
+            this.db = repository;
 
             //Category music = new Category { Name = "Music" };
             //Category video = new Category { Name = "Video" };
@@ -156,26 +156,25 @@ namespace ProjectList.Controllers
             return View(categories);
         }
 
-        //public IActionResult CreateCategory()
-        //{
-        //    return View("CreateCategory");
-        //}
+        public IActionResult CreateCategory()
+        {
+            return View("CreateCategory");
+        }
 
-        //[HttpPost]
-        //public async Task<IActionResult> CreateCategory(Category category)
-        //{
-        //    if(ModelState.IsValid)
-        //    {
-        //        db.Category.Add(category);
-        //        await db.SaveChangesAsync();
-        //        return RedirectToAction("Category");
-        //    }
-        //    else
-        //    {
-        //        return View();
-        //    }
-
-        //}
+        [HttpPost]
+        public IActionResult CreateCategory(Category category)
+        {
+            if (ModelState.IsValid)
+            {
+                db.CreateCategory(category);
+                db.Save();
+                return RedirectToAction("Category");
+            }
+            else
+            {
+                return View();
+            }
+        }
 
         //public async Task<IActionResult> EditCategory(int? id)
         //{

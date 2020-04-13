@@ -48,6 +48,16 @@ namespace ProjectList.Models
             db.Product.Add(product);
         }
 
+        public void CreateCategory(Category category)
+        {
+            db.Category.Add(category);
+        }
+
+        public void UpdateCategory(Category category)
+        {
+
+        }
+
         public void Update(Product product)
         {
             db.Entry(product).State = EntityState.Modified;

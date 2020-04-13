@@ -13,7 +13,9 @@ namespace ProjectList.Models
         Category GetCategory(int id);
 
         void Create(Product product);
+        void CreateCategory(Category category);
         void Update(Product product);
+        void UpdateCategory(Category category);
         //IQueryable<Product> Filter(string searchString);
 
         void Delete(int id);
