@@ -18,7 +18,26 @@ namespace ProjectList.Controllers
         public HomeController(ProjectsContext context)
         {
             this.db = context;
-            
+
+            Category music = new Category { Name = "Music" };
+            Category video = new Category { Name = "Video" };
+            Category photo = new Category { Name = "Photo" };
+            Category category = db.Category.FirstOrDefault(u => u.Name == music.Name);
+            if(category == null)
+            {
+                db.Category.Add(music);
+            }            
+            category = db.Category.FirstOrDefault(u => u.Name == video.Name);
+            if (category == null)
+            {
+                db.Category.Add(video);
+            }
+            category = db.Category.FirstOrDefault(u => u.Name == photo.Name);
+            if (category == null)
+            {
+                db.Category.Add(photo);
+            }
+            db.SaveChanges();           
         }
 
         public IActionResult Index(string searchString) //Main page with project list
@@ -116,7 +135,7 @@ namespace ProjectList.Controllers
             {
                 db.Category.Add(category);
                 await db.SaveChangesAsync();
-                return RedirectToAction("CategoryList");
+                return RedirectToAction("Category");
             }
             else
             {
@@ -142,7 +161,7 @@ namespace ProjectList.Controllers
             {
                 db.Category.Update(category);
                 await db.SaveChangesAsync();
-                return RedirectToAction("CategoryList");
+                return RedirectToAction("Category");
             }
             else
             {
@@ -167,13 +186,13 @@ namespace ProjectList.Controllers
                     {
                         db.Category.Remove(category);
                         await db.SaveChangesAsync();
-                        return RedirectToAction("CategoryList");
+                        return RedirectToAction("Category");
                     }   
                     else
                     {
                         IQueryable<Category> categories = db.Category;
                         ViewBag.Message = "Can't delete selected category: category does not empty, change project categories in projects list!";
-                        return View("CategoryList", categories);
+                        return View("Category", categories);
                     }                        
                 }
             }
