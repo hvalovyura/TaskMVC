@@ -145,16 +145,16 @@ namespace ProjectList.Controllers
         //    return NotFound();
         //}
 
-        //public IActionResult Category(string searchString)
-        //{
-        //    IQueryable<Category> categories = db.Category;
-        //    if (!String.IsNullOrEmpty(searchString))
-        //    {
-        //        categories = categories.Where(s => s.Name.Contains(searchString));
-        //    }            
-        //    return View(categories);
-        //}
-        
+        public IActionResult Category(string searchString)
+        {
+            IQueryable<Category> categories = db.GetCategoryList();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                categories = categories.Where(s => s.Name.Contains(searchString));
+            }
+            return View(categories);
+        }
+
         //public IActionResult CreateCategory()
         //{
         //    return View("CreateCategory");
@@ -173,7 +173,7 @@ namespace ProjectList.Controllers
         //    {
         //        return View();
         //    }
-            
+
         //}
 
         //public async Task<IActionResult> EditCategory(int? id)

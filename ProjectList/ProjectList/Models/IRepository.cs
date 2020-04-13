@@ -8,7 +8,9 @@ namespace ProjectList.Models
     public interface IRepository : IDisposable
     {
         IQueryable<Product> GetProductList();
+        IQueryable<Category> GetCategoryList();
         Product GetProduct(int id);
+        Category GetCategory(int id);
 
         void Create(Product product);
         void Update(Product product);

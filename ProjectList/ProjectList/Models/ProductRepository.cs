@@ -17,9 +17,18 @@ namespace ProjectList.Models
         {
             return db.Product;
         }
+
+        public IQueryable<Category> GetCategoryList()
+        {
+            return db.Category;
+        }
         public Product GetProduct(int id)
         {
             return db.Product.Find(id);
+        }
+        public Category GetCategory(int id)
+        {
+            return db.Category.Find(id);
         }
 
         public IQueryable<Product> Filter(string searchString)

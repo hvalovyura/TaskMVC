@@ -24,5 +24,17 @@ namespace ProjectList.Test
             Assert.NotNull(result.Model);
         }
 
+        [Fact]
+        public void CategoryViewIsNotEqualNull()
+        {
+            var mock = new Mock<IRepository>();
+            mock.Setup(a => a.GetCategoryList());
+            HomeController controller = new HomeController(mock.Object);
+
+            ViewResult result = controller.Category("") as ViewResult;
+
+            Assert.NotNull(result.Model);
+        }
+
     }
 }
