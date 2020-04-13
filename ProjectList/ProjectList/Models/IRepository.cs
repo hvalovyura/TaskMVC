@@ -14,7 +14,7 @@ namespace ProjectList.Models
 
         void Create(Product product);
         void Update(Product product);
-        IQueryable<Product> Filter(string searchString);
+        //IQueryable<Product> Filter(string searchString);
 
         void Delete(int id);
 

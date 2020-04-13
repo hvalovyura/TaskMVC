@@ -82,29 +82,30 @@ namespace ProjectList.Controllers
             return View(products);
         }
 
-        //public IActionResult Create()
-        //{
-        //    IQueryable<Category> categories = db.Category;
-        //    ViewBag.Greeting = categories;
-        //    return View("Create");
-        //}
+        public IActionResult Create()
+        {
+            IQueryable<Category> categories = db.GetCategoryList();
+            ViewBag.Greeting = categories;
+            return View("Create");
+        }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Create(Product project)
-        //{
-        //    if(ModelState.IsValid)
-        //    {
-        //        db.Product.Add(project);
-        //        await db.SaveChangesAsync();
-        //        return RedirectToAction("Index");
-        //    }
-        //    else
-        //    {
-        //        IQueryable<Category> categories = db.Category;
-        //        ViewBag.Greeting = categories;
-        //        return View();
-        //    }            
-        //}
+        [HttpPost]
+        public IActionResult Create(Product project)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Create(project);
+                db.Save();
+                //await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                IQueryable<Category> categories = db.GetCategoryList();
+                ViewBag.Greeting = categories;
+                return View();
+            }
+        }
 
         //public async Task<IActionResult> Edit(int? id)
         //{

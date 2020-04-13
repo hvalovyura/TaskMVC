@@ -31,17 +31,17 @@ namespace ProjectList.Models
             return db.Category.Find(id);
         }
 
-        public IQueryable<Product> Filter(string searchString)
-        {
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                return db.Product.Where(s => s.Name.Contains(searchString));
-            }
-            else
-            {
-                return db.Product;
-            }
-        }
+        //public IQueryable<Product> Filter(string searchString)
+        //{
+        //    if (!String.IsNullOrEmpty(searchString))
+        //    {
+        //        return db.Product.Where(s => s.Name.Contains(searchString));
+        //    }
+        //    else
+        //    {
+        //        return db.Product;
+        //    }
+        //}
 
         public void Create(Product product)
         {
