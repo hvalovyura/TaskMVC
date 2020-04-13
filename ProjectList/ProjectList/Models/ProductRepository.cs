@@ -55,7 +55,7 @@ namespace ProjectList.Models
 
         public void UpdateCategory(Category category)
         {
-
+            db.Entry(category).State = EntityState.Modified;
         }
 
         public void Update(Product product)

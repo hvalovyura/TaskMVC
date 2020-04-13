@@ -176,30 +176,30 @@ namespace ProjectList.Controllers
             }
         }
 
-        //public async Task<IActionResult> EditCategory(int? id)
-        //{
-        //    Category category = await db.Category.FirstOrDefaultAsync(p => p.Id == id);
-        //    if (category != null)
-        //    {
-        //        return View(category);
-        //    }
-        //    return NotFound();
-        //}
+        public IActionResult EditCategory(int id)
+        {
+            Category category = db.GetCategory(id);
+            if (category != null)
+            {
+                return View(category);
+            }
+            return NotFound();
+        }
 
-        //[HttpPost]
-        //public async Task<IActionResult> EditCategory(Category category)
-        //{
-        //    if(ModelState.IsValid)
-        //    {
-        //        db.Category.Update(category);
-        //        await db.SaveChangesAsync();
-        //        return RedirectToAction("Category");
-        //    }
-        //    else
-        //    {
-        //        return View();
-        //    }
-        //}
+        [HttpPost]
+        public IActionResult EditCategory(Category category)
+        {
+            if (ModelState.IsValid)
+            {
+                db.UpdateCategory(category);
+                db.Save();
+                return RedirectToAction("Category");
+            }
+            else
+            {
+                return View();
+            }
+        }
 
         //public async Task<IActionResult> DeleteCategory(int? id)
         //{
