@@ -8,8 +8,8 @@ namespace ProjectList.Models
 {
     public class ProjectsContext : DbContext
     {
-        public DbSet<Project> Projects { get; set; }
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<Category> Category { get; set; }
         public ProjectsContext(DbContextOptions<ProjectsContext> options) : base(options)
         {
             Database.EnsureCreated();

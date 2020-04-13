@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YNuSiRqfF2us+YrP0B3aY1l678VGzzhxrhEEGq2jis26qUonW717DyAHeNPJlmyDnMNWURldtU/JSNEKAtNl7Q==",
+  "dgSpecHash": "TlseNUWzBtjDFyJDqmaeUSJZud6q3SEIhEh3hBpJiVWwFRYk3h7D+Q1k0CYXccyrmihsq5MX7r4jwa0sJEraGQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\2die4\\Desktop\\projects\\TaskMVC\\ProjectList\\ProjectList\\ProjectList.csproj",
+  "projectFilePath": "C:\\Users\\2die4\\Desktop\\projects\\TaskHvalovYury\\ProjectList\\ProjectList\\ProjectList.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\2die4\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\2die4\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

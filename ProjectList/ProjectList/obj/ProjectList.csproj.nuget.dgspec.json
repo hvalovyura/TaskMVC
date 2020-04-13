@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\2die4\\Desktop\\projects\\TaskMVC\\ProjectList\\ProjectList\\ProjectList.csproj": {}
+    "C:\\Users\\2die4\\Desktop\\projects\\TaskHvalovYury\\ProjectList\\ProjectList\\ProjectList.csproj": {}
   },
   "projects": {
-    "C:\\Users\\2die4\\Desktop\\projects\\TaskMVC\\ProjectList\\ProjectList\\ProjectList.csproj": {
+    "C:\\Users\\2die4\\Desktop\\projects\\TaskHvalovYury\\ProjectList\\ProjectList\\ProjectList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\2die4\\Desktop\\projects\\TaskMVC\\ProjectList\\ProjectList\\ProjectList.csproj",
+        "projectUniqueName": "C:\\Users\\2die4\\Desktop\\projects\\TaskHvalovYury\\ProjectList\\ProjectList\\ProjectList.csproj",
         "projectName": "ProjectList",
-        "projectPath": "C:\\Users\\2die4\\Desktop\\projects\\TaskMVC\\ProjectList\\ProjectList\\ProjectList.csproj",
+        "projectPath": "C:\\Users\\2die4\\Desktop\\projects\\TaskHvalovYury\\ProjectList\\ProjectList\\ProjectList.csproj",
         "packagesPath": "C:\\Users\\2die4\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\2die4\\Desktop\\projects\\TaskMVC\\ProjectList\\ProjectList\\obj\\",
+        "outputPath": "C:\\Users\\2die4\\Desktop\\projects\\TaskHvalovYury\\ProjectList\\ProjectList\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

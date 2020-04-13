@@ -12,15 +12,18 @@ namespace ProjectList.Controllers
 {
     public class HomeController : Controller
     {
+
         ProjectsContext db;
+
         public HomeController(ProjectsContext context)
         {
             this.db = context;
+            
         }
 
         public IActionResult Index(string searchString) //Main page with project list
         {
-            IQueryable<Project> users = db.Projects.Include(x => x.Category);
+            IQueryable<Product> users = db.Product.Include(x => x.Category);
             if (!String.IsNullOrEmpty(searchString))
             {
                 users = users.Where(s => s.Name.Contains(searchString));
@@ -30,23 +33,23 @@ namespace ProjectList.Controllers
 
         public IActionResult Create()
         {
-            IQueryable<Category> categories = db.Categories;
+            IQueryable<Category> categories = db.Category;
             ViewBag.Greeting = categories;
             return View("Create");
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Project project)
+        public async Task<IActionResult> Create(Product project)
         {
             if(ModelState.IsValid)
             {
-                db.Projects.Add(project);
+                db.Product.Add(project);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             else
             {
-                IQueryable<Category> categories = db.Categories;
+                IQueryable<Category> categories = db.Category;
                 ViewBag.Greeting = categories;
                 return View();
             }            
@@ -54,9 +57,9 @@ namespace ProjectList.Controllers
 
         public async Task<IActionResult> Edit(int? id)
         {
-            IQueryable<Category> categories = db.Categories;
+            IQueryable<Category> categories = db.Category;
             ViewBag.Greeting = categories;
-            Project project = await db.Projects.FirstOrDefaultAsync(p => p.Id == id);
+            Product project = await db.Product.FirstOrDefaultAsync(p => p.Id == id);
             if (project != null)
             {
                 return View(project);
@@ -65,11 +68,11 @@ namespace ProjectList.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(Project project)
+        public async Task<IActionResult> Edit(Product project)
         {
             if(ModelState.IsValid)
             {
-                db.Projects.Update(project);
+                db.Product.Update(project);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
@@ -83,7 +86,7 @@ namespace ProjectList.Controllers
         {
             if (id != null)
             {
-                Project project = new Project { Id = id.Value };
+                Product project = new Product { Id = id.Value };
                 db.Entry(project).State = EntityState.Deleted;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -91,11 +94,9 @@ namespace ProjectList.Controllers
             return NotFound();
         }
 
-
-
         public IActionResult CategoryList(string searchString)
         {
-            IQueryable<Category> categories = db.Categories;
+            IQueryable<Category> categories = db.Category;
             if (!String.IsNullOrEmpty(searchString))
             {
                 categories = categories.Where(s => s.Name.Contains(searchString));
@@ -113,7 +114,7 @@ namespace ProjectList.Controllers
         {
             if(ModelState.IsValid)
             {
-                db.Categories.Add(category);
+                db.Category.Add(category);
                 await db.SaveChangesAsync();
                 return RedirectToAction("CategoryList");
             }
@@ -126,7 +127,7 @@ namespace ProjectList.Controllers
 
         public async Task<IActionResult> EditCategory(int? id)
         {
-            Category category = await db.Categories.FirstOrDefaultAsync(p => p.Id == id);
+            Category category = await db.Category.FirstOrDefaultAsync(p => p.Id == id);
             if (category != null)
             {
                 return View(category);
@@ -139,7 +140,7 @@ namespace ProjectList.Controllers
         {
             if(ModelState.IsValid)
             {
-                db.Categories.Update(category);
+                db.Category.Update(category);
                 await db.SaveChangesAsync();
                 return RedirectToAction("CategoryList");
             }
@@ -154,23 +155,23 @@ namespace ProjectList.Controllers
             bool permission = true;            
             if (id != null)
             {
-                Category category = await db.Categories.FirstOrDefaultAsync(p => p.Id == id);
+                Category category = await db.Category.FirstOrDefaultAsync(p => p.Id == id);
                 if (category != null)
                 {
-                    IEnumerable<Project> projects = db.Projects;
-                    foreach(Project p in projects)
+                    IEnumerable<Product> projects = db.Product;
+                    foreach(Product p in projects)
                     {
                         if (p.CategoryId == category.Id) permission = false;
                     }
                     if (permission == true)
                     {
-                        db.Categories.Remove(category);
+                        db.Category.Remove(category);
                         await db.SaveChangesAsync();
                         return RedirectToAction("CategoryList");
                     }   
                     else
                     {
-                        IQueryable<Category> categories = db.Categories;
+                        IQueryable<Category> categories = db.Category;
                         ViewBag.Message = "Can't delete selected category: category does not empty, change project categories in projects list!";
                         return View("CategoryList", categories);
                     }                        
@@ -179,12 +180,5 @@ namespace ProjectList.Controllers
             return NotFound();
         }
 
-
-
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        //public IActionResult Error()
-        //{
-        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        //}
     }
 }

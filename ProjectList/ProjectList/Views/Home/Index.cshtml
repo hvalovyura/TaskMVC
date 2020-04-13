@@ -2,8 +2,8 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-@model IEnumerable<Project>
-<h1>ProjectList</h1>
+@model IEnumerable<Product>
+<h1>Project</h1>
 @using (Html.BeginForm())
 {
     <p>
@@ -13,7 +13,7 @@
 }
 <a asp-action="Create">Add new project</a>
 <table class="table">
-    @foreach (Project p in Model)
+    @foreach (Product p in Model)
     {
         <tr>
             <td><a asp-action="Edit" asp-controller="Home" asp-route-id="@p.Id">@p.Name</a></td>

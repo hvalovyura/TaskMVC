@@ -26,15 +26,16 @@ namespace ProjectList.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Category");
                 });
 
-            modelBuilder.Entity("ProjectList.Models.Project", b =>
+            modelBuilder.Entity("ProjectList.Models.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -49,6 +50,7 @@ namespace ProjectList.Migrations
                         .HasMaxLength(1000);
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
@@ -59,13 +61,13 @@ namespace ProjectList.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Projects");
+                    b.ToTable("Product");
                 });
 
-            modelBuilder.Entity("ProjectList.Models.Project", b =>
+            modelBuilder.Entity("ProjectList.Models.Product", b =>
                 {
                     b.HasOne("ProjectList.Models.Category", "Category")
-                        .WithMany("Projects")
+                        .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

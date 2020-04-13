@@ -14,11 +14,5 @@ namespace ProjectList.Models
         [StringLength(100, ErrorMessage = "error message")]
         [Required]
         public string Name { get; set; }
-
-        //public List<Project> Projects { get; set; }
-        //public Category()
-        //{
-        //    Projects = new List<Project>();
-        //}
     }
 }
