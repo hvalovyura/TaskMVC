@@ -39,6 +39,10 @@ namespace ProjectList.Controllers
             }
             db.SaveChanges();           
         }
+        public HomeController()
+        {
+
+        }
 
         public IActionResult Index(string searchString) //Main page with project list
         {
