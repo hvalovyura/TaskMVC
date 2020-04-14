@@ -18,7 +18,7 @@ namespace ProjectList.Controllers
         {
             this.db = repository;
 
-            Category music = new Category { Name = "Music" };
+            Category music = new Category { Name = "Music" };       //this categories are required
             Category video = new Category { Name = "Video" };
             Category photo = new Category { Name = "Photo" };
             Category category = db.GetCategoryList().FirstOrDefault(u => u.Name == music.Name);

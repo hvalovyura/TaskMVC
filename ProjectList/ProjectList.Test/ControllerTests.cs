@@ -61,7 +61,7 @@ namespace ProjectList.Test
         }
 
         [Fact]
-        public void CategoryCountInCategoryViewIsNotLessThan_3()
+        public void CategoryCountInCategoryViewIsEqual_3()
         {
             var mockCategory = new Mock<IRepository>();
             mockCategory.Setup(a => a.GetCategoryList()).Returns(TestData().AsQueryable());
