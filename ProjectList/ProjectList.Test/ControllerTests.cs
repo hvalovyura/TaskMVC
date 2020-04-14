@@ -63,17 +63,16 @@ namespace ProjectList.Test
         [Fact]
         public void CategoryCountInCategoryViewIsEqual_3()
         {
-            var mockCategory = new Mock<IRepository>();
-            mockCategory.Setup(a => a.GetCategoryList()).Returns(TestData().AsQueryable());
-            HomeController controller = new HomeController(mockCategory.Object);
+            var mock = new Mock<IRepository>();
+            mock.Setup(a => a.GetCategoryList()).Returns(TestCategoryData().AsQueryable());
+            HomeController controller = new HomeController(mock.Object);
             
-            int count = mockCategory.Object.GetCategoryList().Count();
-
+            int count = mock.Object.GetCategoryList().Count();
             
             Assert.Equal(3, count);
         }
 
-        public List<Category> TestData()
+        public List<Category> TestCategoryData()
         {
             List<Category> testdata = new List<Category>();
             Category music = new Category { Name = "Music" };

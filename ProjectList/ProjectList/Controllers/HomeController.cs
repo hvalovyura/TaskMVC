@@ -12,31 +12,44 @@ namespace ProjectList.Controllers
 {
     public class HomeController : Controller
     {
+        private List<Category> requiredList;
         IRepository db;
+        public void RequiredCategories()
+        {
+            Category music = new Category { Name = "Music" };       //this categories are required
+            Category video = new Category { Name = "Video" };
+            Category photo = new Category { Name = "Photo" };
+            this.requiredList = new List<Category>();
+            requiredList.Add(music);
+            requiredList.Add(video);
+            requiredList.Add(photo);
+        }
 
         public HomeController(IRepository repository)
         {
             this.db = repository;
-
-            Category music = new Category { Name = "Music" };       //this categories are required
-            Category video = new Category { Name = "Video" };
-            Category photo = new Category { Name = "Photo" };
-            Category category = db.GetCategoryList().FirstOrDefault(u => u.Name == music.Name);
-            if (category == null)
-            {
-                db.CreateCategory(music);
-            }
-            category = db.GetCategoryList().FirstOrDefault(u => u.Name == video.Name);
-            if (category == null)
-            {
-                db.CreateCategory(video);
-            }
-            category = db.GetCategoryList().FirstOrDefault(u => u.Name == photo.Name);
-            if (category == null)
-            {
-                db.CreateCategory(photo);
-            }
-            db.Save();
+            RequiredCategories();
+            //Category music = new Category { Name = "Music" };       //this categories are required
+            //Category video = new Category { Name = "Video" };
+            //Category photo = new Category { Name = "Photo" };
+            //Category category = db.GetCategoryList().FirstOrDefault(u => u.Name == music.Name);
+            //if (category == null)
+            //{
+            //    db.CreateCategory(music);
+            //    db.Save();
+            //}
+            //category = db.GetCategoryList().FirstOrDefault(u => u.Name == video.Name);
+            //if (category == null)
+            //{
+            //    db.CreateCategory(video);
+            //    db.Save();
+            //}
+            //category = db.GetCategoryList().FirstOrDefault(u => u.Name == photo.Name);
+            //if (category == null)
+            //{
+            //    db.CreateCategory(photo);
+            //    db.Save();
+            //}
         }
 
 
@@ -110,6 +123,27 @@ namespace ProjectList.Controllers
 
         public IActionResult Category(string searchString)
         {
+            Category music = new Category { Name = "Music" };       //this categories are required
+            Category video = new Category { Name = "Video" };
+            Category photo = new Category { Name = "Photo" };
+            Category category = db.GetCategoryList().FirstOrDefault(u => u.Name == music.Name);
+            if (category == null)
+            {
+                db.CreateCategory(music);
+                db.Save();
+            }
+            category = db.GetCategoryList().FirstOrDefault(u => u.Name == video.Name);
+            if (category == null)
+            {
+                db.CreateCategory(video);
+                db.Save();
+            }
+            category = db.GetCategoryList().FirstOrDefault(u => u.Name == photo.Name);
+            if (category == null)
+            {
+                db.CreateCategory(photo);
+                db.Save();
+            }
             IQueryable<Category> categories = db.GetCategoryList();
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -165,8 +199,14 @@ namespace ProjectList.Controllers
 
         public IActionResult DeleteCategory(int id)
         {
+            bool req = true;
             bool permission = true;
             Category category = db.GetCategory(id);
+            foreach (Category cat in requiredList)
+            {
+                if (cat.Name == category.Name)
+                    req = false;
+            }
             if (category != null)
             {
                 IEnumerable<Product> products = db.GetProductList();
@@ -174,7 +214,7 @@ namespace ProjectList.Controllers
                 {
                     if (p.CategoryId == category.Id) permission = false;
                 }
-                if (permission == true)
+                if (permission == true && req == true)
                 {
                     db.DeleteCategory(id);
                     db.Save();
@@ -182,8 +222,9 @@ namespace ProjectList.Controllers
                 }
                 else
                 {
+                    if (req == false) ViewBag.Message = "Can't delete required category";
                     IQueryable<Category> categories = db.GetCategoryList();
-                    ViewBag.Message = "Can't delete selected category: category does not empty, change project categories in projects list!";
+                    if (permission == false && req == true) ViewBag.Message = "Can't delete selected category: category does not empty, change project categories in projects list!";
                     return View("Category", categories);
                 }
             }
